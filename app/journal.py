@@ -20,6 +20,7 @@ class TradeRecord:
     pnl_usdt: Optional[float] = None
     close_note: Optional[str] = None
     exit_price: Optional[float] = None
+    chart_file_id: Optional[str] = None
 
 
 class TradeJournal:
@@ -84,6 +85,7 @@ class TradeJournal:
                 "pnl_usdt": record.pnl_usdt,
                 "close_note": record.close_note,
                 "exit_price": record.exit_price,
+                "chart_file_id": record.chart_file_id,
             }
             for record in self._records
         ]
