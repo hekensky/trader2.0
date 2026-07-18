@@ -294,7 +294,7 @@ def main() -> None:
     new_trade_handler = ConversationHandler(
         entry_points=[
             CommandHandler("new", new_trade_start),
-            MessageHandler(filters.Regex("^(Новая сделка)$"), new_trade_start),
+            MessageHandler(filters.Regex(r"(?i)^\s*новая сделка\s*$"), new_trade_start),
         ],
         states={
             TICKER: [MessageHandler(filters.TEXT & ~filters.COMMAND, new_trade_ticker)],
