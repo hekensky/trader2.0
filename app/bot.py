@@ -100,7 +100,7 @@ async def close_trade(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
     await update.message.reply_text(f"Сделка #{record_id} закрыта")
 
 
-async def main() -> None:
+def main() -> None:
     if not TOKEN:
         raise RuntimeError("TELEGRAM_BOT_TOKEN is not set")
     application = Application.builder().token(TOKEN).build()
@@ -114,5 +114,4 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
+    main()
