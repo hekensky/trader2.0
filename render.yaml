@@ -1,13 +1,24 @@
 services:
   - type: web
-    name: trader-journal
+    name: trader-journal-web
     env: python
     region: oregon
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: python app/web_app.py
+    startCommand: python -m app.web_app
     envVars:
       - key: PORT
         value: 10000
+      - key: PYTHON_VERSION
+        value: 3.9.6
+
+  - type: worker
+    name: trader-journal-bot
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m app.bot
+    envVars:
       - key: PYTHON_VERSION
         value: 3.9.6
